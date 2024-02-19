@@ -7,7 +7,7 @@ import 'package:giphy_picker/src/widgets/giphy_search_text.dart';
 import 'package:giphy_picker/src/widgets/giphy_thumbnail_grid.dart';
 
 /// Defines the function for building pages.
-typedef PageBuilder = Widget Function(BuildContext context, Widget? title);
+typedef PageBuilder = Widget Function(BuildContext context, AppBar? title);
 
 /// Defines the function for building search text editors.
 typedef SearchTextBuilder = Widget Function(BuildContext context,
@@ -87,8 +87,8 @@ class GiphyContext extends InheritedWidget {
     return giphy;
   }
 
-  static Widget _buildDefaultPage(BuildContext context, Widget? title) =>
-      GiphySearchPage(title: title);
+  static Widget _buildDefaultPage(BuildContext context, AppBar? title) =>
+      GiphySearchPage(appbar: title);
 
   static Widget _buildDefaultSearchText(
     BuildContext context,

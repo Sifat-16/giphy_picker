@@ -1,6 +1,7 @@
 library giphy_picker;
 
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:giphy_picker/src/model/giphy_client.dart';
 import 'package:giphy_picker/src/model/giphy_preview_types.dart';
@@ -8,8 +9,8 @@ import 'package:giphy_picker/src/widgets/giphy_context.dart';
 import 'package:giphy_picker/src/widgets/giphy_search_page.dart';
 
 export 'package:giphy_picker/src/model/giphy_client.dart';
-export 'package:giphy_picker/src/widgets/giphy_image.dart';
 export 'package:giphy_picker/src/model/giphy_preview_types.dart';
+export 'package:giphy_picker/src/widgets/giphy_image.dart';
 
 typedef ErrorListener = void Function(GiphyError error);
 
@@ -22,7 +23,7 @@ class GiphyPicker {
     String rating = GiphyRating.g,
     String lang = GiphyLanguage.english,
     bool sticker = false,
-    Widget? title,
+    AppBar? appBar,
     ErrorListener? onError,
     bool showPreviewPage = true,
     bool showGiphyAttribution = true,
@@ -64,7 +65,7 @@ class GiphyPicker {
           noResultsBuilder: noResultsBuilder,
           errorBuilder: errorBuilder,
           child: GiphySearchPage(
-            title: title,
+            appbar: appBar,
           ),
         ),
         fullscreenDialog: fullScreenDialog,
