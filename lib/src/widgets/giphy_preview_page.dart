@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:giphy_picker/src/model/giphy_client.dart';
 import 'package:giphy_picker/src/widgets/giphy_image.dart';
@@ -21,11 +22,30 @@ class GiphyPreviewPage extends StatelessWidget {
     final media = MediaQuery.of(context);
 
     return Scaffold(
-        appBar: AppBar(elevation: 0, title: title, actions: <Widget>[
-          IconButton(
+        appBar: AppBar(
+          elevation: 0,
+          leading: Container(
+            margin:
+            const EdgeInsets.only(left: 10),
+            decoration: const BoxDecoration(
+                shape: BoxShape.circle),
+            child: IconButton(
+              icon: const Icon(CupertinoIcons.back,
+                  size: 19,
+               ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ),
+          title: title,
+          actions: <Widget>[
+            IconButton(
               icon: const Icon(Icons.check),
-              onPressed: () => onSelected?.call(gif))
-        ]),
+              onPressed: () => onSelected?.call(gif),
+            ),
+          ],
+        ),
         body: SafeArea(
           bottom: false,
           child: Center(
